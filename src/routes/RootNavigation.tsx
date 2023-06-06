@@ -1,7 +1,18 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import MainNavigation from "./MainNavigation";
+import LoginNavigation from "./LoginNavigation";
 
 const RootNavigation = () => {
-  return <div>RootNavigation</div>;
+  const token = true;
+
+  return (
+    <Routes>
+      <Route
+        path="*"
+        element={token ? <MainNavigation /> : <LoginNavigation />}
+      />
+    </Routes>
+  );
 };
 
 export default RootNavigation;
